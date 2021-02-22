@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded" + "click", function startQuiz() {
     questionTitleEl.textContent = activeQuestion.title;
     answersEl.innerHTML ="";
     activeQuestion.answers.forEach(function(answer, i) {
-      // create new button for each choice
       let answerNode = document.createElement("button");
       answerNode.setAttribute("class", "answer");
       answerNode.setAttribute("value", answer);
