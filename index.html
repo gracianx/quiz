@@ -3,28 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      #view-1 {
-        background-color: rgb(145, 145, 145);
-      }
-      #view-2 {
-        background-color: rgb(201, 73, 73);
-        display: none;
-      }
-    </style>
     <title>Document</title>
+    <link href="./assets/style.css">
 </head>
 <body>
-  <div id="view1">
-    View 1
+  <div id ="container">
+      <div id="beginHere" class="">
+        <p id ="introText">Start the quiz by clicking on the Start button below. Good luck!</p>
+      <div id="startBtn"><button>Start</button>
+      </div>
+      </div>
+    <div id="counter">
+      Time and Score:
+    </div>
+    <div id="quiz" class="hidden"> <p id ="questionsEl"></p> 
+    </div>
+    <div id="answers">
+      <div class="answers" id="answers" onclick="checkAnswer('correctAnswer')"></div>
   </div>
-  <div id="view2">
-    View 2
   </div>
-  <button id="btn">
-    Click
-  </button>
-  <p>Counter: <span id="counter">0</span></p>
-  <script src="script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
