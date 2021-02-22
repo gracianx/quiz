@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
   <div id ="container">
-      <div id="beginHere" class="">
-        <p id ="introText">Start the quiz by clicking on the Start button below. Good luck!</p>
-      <div id="startBtn"><button>Start</button>
-      </div>
-      </div>
-    <div id="counter">
+    <header id="counter">
       Time and Score:
+    </header>
+      <section id="startQuizEl" class="show">
+        Start the quiz by clicking on the Start button below. Good luck!
+        <div id="startBtn"><button>Start</button>
+        </div>
+      </section>
+    
+    <section id="quizEl" class="hide">
+      
+      <h3 id ="questionTitleEl"></h3> 
+    </section>
+    <div id="choices">
     </div>
-    <div id="quiz" class="hidden"> <p id ="questionsEl"></p> 
-    </div>
-    <div id="answers">
-      <div class="answers" id="answers" onclick="checkAnswer('correctAnswer')"></div>
-  </div>
   </div>
     <script src="./assets/script.js"></script>
+    <script src="./assets/questions.js"></script>
 </body>
 </html>

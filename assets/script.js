@@ -1,4 +1,4 @@
-//Create variables to store the quiz questions
+
 let counterEl = document.getElementById("counter");
 
 let startBtnEl = document.getElementById("startBtn");
@@ -7,39 +7,20 @@ let questionsEl = document.getElementById("questions");
 
 let scoreEl = document.getElementById("score");
 
-let answersEl = document.getElementById("answers");
+let choicesEl = document.getElementById("choices");
 
 let startQuizEl = document.getElementById("beginHere")
 
 let quizEl = document.getElementById("quiz")
 
-let questions = [{
-    question: "What tag is used to define an interactive field where users can enter data?",
-    answers: ["<p>", "<input>", "<br>"],
-    correctAnswer: "<input>"
-},{
-    question: "How do you add space around content using CSS?",
-    answers: ["<padding>", "<space>", "<space-around>"],
-    correctAnswer: "<padding>"
-
-},{
-  question: "What statement ends a loop?",
-  answers: ["Conditional statement", "//STOP LOOP", "Close loop"],
-  correctAnswer:"Conditional statement"
-  
-}];
-
-for (i = 0; i < questions.length; i++);
-
-
 //Use mouse-click events to start the quiz
 
 startBtnEl.addEventListener("click", function countdown(minutes) {
-   let seconds = 75;
+   let seconds = 45;
   let mins = minutes
   function tick() {
-      var counter = document.getElementById("counter");
-      var current_minutes = mins-1
+      let counter = document.getElementById("counter");
+      let current_minutes = mins-1
       seconds--;
       counter.innerHTML = "Time and Score: " + String(seconds);
       if( seconds > 0 ) {
@@ -51,20 +32,39 @@ startBtnEl.addEventListener("click", function countdown(minutes) {
       }
   }
   tick();
-});
 
-document.addEventListener("click", function startQuiz() {
-  let startQuizEl = document.getElementById("beginHere");
-  document.getElementById("beginHere").hidden = true;
-  document.getElementById("quiz").hidden = false;
-}, false); 
+
+
+document.addEventListener("DOMContentLoaded" + "click", function startQuiz() {
+  if (quizEl.style.display === "block") {
+    quizEl.style.display = "none";
+  }else{
+    quizEl.style.display = block;
+  }
+ 
+  questionTitleEl.addEventListener("click", function renderQuestion()
+  {
+    let activeQuestion = questions[activeQuestionIndex];
+
+    let questionTitleEl = document.getElementById("title");
+    questionTitleEl.textContent = activeQuestion.title;
+    answersEl.innerHTML ="";
+    activeQuestion.answers.forEach(function(answer, i) {
+      // create new button for each choice
+      let answerNode = document.createElement("button");
+      answerNode.setAttribute("class", "answer");
+      answerNode.setAttribute("value", answer);
+  
+      answerNode.textContent = i + 1 + ". " + answer;
+      answerNode.onclick = questionClick;
+      answersEl.appendChild(answerNode);
+  });
+
+  
+  
 
   //Write for loops to cycle through quiz questions
-  let txt = "";
-questions.forEach(function(showQuestion) {
-  document.getElementById("questionEl").innerHTML = txt;
-       } ); 
-    
+
   //Use key-press events to receive user input in the form of answers to quiz questions
   
   //Create a time limit for the game using time functions
@@ -72,3 +72,8 @@ questions.forEach(function(showQuestion) {
   //Write conditional statements to determine wrong and right answers
   
   //Use client-side storage to store high scores
+});
+
+});
+
+});
